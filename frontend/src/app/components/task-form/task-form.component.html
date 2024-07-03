@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-title>{{ isNew ? 'New Task' : 'Edit Task' }}</mat-card-title>
+    <mat-card-content>
+        <form (ngSubmit)="saveTask()">
+            <mat-form-field>
+                <input matInput placeholder="Title" [(ngModel)]="task.title" name="title" required>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Description" [(ngModel)]="task.description"
+                    name="description"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [matDatepicker]="dueDatePicker" placeholder="Due Date" [(ngModel)]="task.dueDate"
+                    name="dueDate">
+                <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #dueDatePicker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select placeholder="Priority" [(ngModel)]="task.priority" name="priority">
+                    <mat-option value="low">Low</mat-option>
+                    <mat-option value="medium">Medium</mat-option>
+                    <mat-option value="high">High</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select placeholder="Status" [(ngModel)]="task.status" name="status">
+                    <mat-option value="pending">Pending</mat-option>
+                    <mat-option value="in progress">In Progress</mat-option>
+                    <mat-option value="completed">Completed</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-raised-button color="primary">{{ isNew ? 'Create' : 'Update' }}</button>
+        </form>
+    </mat-card-content>
+</mat-card>

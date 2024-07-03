@@ -1,0 +1,5 @@
+<mat-toolbar color="primary">
+    <span>Task Management App</span>
+    <span class="spacer"></span>
+    <button mat-button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
+</mat-toolbar>

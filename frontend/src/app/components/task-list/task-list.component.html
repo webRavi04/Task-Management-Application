@@ -1,0 +1,26 @@
+<div class="center-container">
+    <mat-card>
+        <mat-card-title>Tasks</mat-card-title>
+        <mat-card-content>
+            <button mat-raised-button color="primary" routerLink="/tasks/new">New Task</button>
+            <mat-list>
+                <mat-list-item *ngFor="let task of tasks">
+                    <div class="task-item">
+                        <div class="task-details">
+                            <h4 matLine>{{ task.title }}</h4>
+                            <p matLine>{{ task.description }}</p>
+                        </div>
+                        <div class="task-actions">
+                            <button mat-raised-button color="warn" (click)="deleteTask(task._id)">
+                                Delete
+                            </button>
+                            <button mat-raised-button color="accent" (click)="editTask(task._id)">
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>
